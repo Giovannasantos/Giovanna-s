@@ -1,0 +1,83 @@
+const texto = document.getElementById('texto');
+const opcoes = document.getElementById('opcoes');
+
+const cenas = {
+  inicio: {
+    texto: "Você acorda em uma floresta misteriosa. À sua frente há dois caminhos: uma trilha iluminada e uma caverna escura.",
+    opcoes: [
+      { t: "Seguir pela trilha iluminada", d: "luz" },
+      { t: "Entrar na caverna escura", d: "caverna" }
+    ]
+  },
+  luz: {
+    texto: "A trilha leva até um lago brilhante onde uma criatura curiosa surge. Ela parece amigável.",
+    opcoes: [
+      { t: "Conversar com a criatura", d: "amizade" },
+      { t: "Ignorar e continuar", d: "ilha" },
+      { t: "Voltar para o início", d: "inicio" }
+    ]
+  },
+  caverna: {
+    texto: "Dentro da caverna você encontra inscrições antigas e ouve passos ao longe.",
+    opcoes: [
+      { t: "Ler as inscrições", d: "escrita" },
+      { t: "Investigar os passos", d: "monstro" },
+      { t: "Sair correndo", d: "inicio" }
+    ]
+  },
+  amizade: {
+    texto: "A criatura se torna sua amiga e guia você por um portal seguro para fora da floresta. Você venceu! 🌟",
+    opcoes: []
+  },
+  ilha: {
+    texto: "Você encontra uma pequena ilha no meio do lago com um baú. Dentro há um mapa do tesouro. Fim — nova aventura começa! 🗺️",
+    opcoes: []
+  },
+  escrita: {
+    texto: "As inscrições revelam uma senha. Você a memoriza e descobre um tesouro escondido: conhecimento. Fim 📚",
+    opcoes: []
+  },
+  monstro: {
+    texto: "Um monstro aparece! Você foge e aprende a importância de se preparar antes de explorar. Fim 😅",
+    opcoes: []
+  }
+};
+
+function limparOpcoes(){
+  opcoes.innerHTML = '';
+}
+
+function criarBotao(textoBtn, destino){
+  const btn = document.createElement('button');
+  btn.className = 'opcao';
+  btn.innerText = textoBtn;
+  btn.addEventListener('click', () => mostrarCena(destino));
+  return btn;
+}
+
+function mostrarCena(nome){
+  const cena = cenas[nome];
+  texto.innerText = cena.texto;
+  limparOpcoes();
+
+  if(!cena.opcoes || cena.opcoes.length === 0){
+    const reiniciar = crearReiniciar();
+    opcoes.appendChild(reiniciar);
+    return;
+  }
+
+  cena.opcoes.forEach(o => {
+    const b = criarBotao(o.t, o.d);
+    opcoes.appendChild(b);
+  });
+}
+
+function crearReiniciar(){
+  const btn = document.createElement('button');
+  btn.className = 'opcao';
+  btn.innerText = 'Reiniciar aventura';
+  btn.addEventListener('click', () => mostrarCena('inicio'));
+  return btn;
+}
+
+mostrarCena('inicio');
