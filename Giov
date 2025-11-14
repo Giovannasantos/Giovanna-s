@@ -1,0 +1,37 @@
+:root{
+  --bg: #0b1d2a;
+  --card: #0f2b36;
+  --accent: #4dd0e1;
+  --muted: #9fb6bb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(180deg,var(--bg), #07202a 60%);
+  color:#fff;
+  font-family:Inter, Arial, Helvetica, sans-serif;
+}
+.container{max-width:740px;margin:18px auto;padding:0 16px;}
+.topo{padding:22px 0 6px;text-align:center;}
+h1{margin:0;font-size:1.6rem;color:var(--accent);}
+.sub{margin-top:6px;color:var(--muted);}
+.card{background:var(--card);padding:18px;border-radius:12px;margin-top:14px;box-shadow:0 6px 18px rgba(0,0,0,.3);}
+#texto{font-size:1.05rem;line-height:1.5;margin:0;}
+.actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:14px;}
+button.opcao{
+  background:transparent;
+  border:2px solid var(--accent);
+  color:var(--accent);
+  padding:10px 14px;border-radius:10px;
+  cursor:pointer;font-weight:600;
+  transition:all .16s ease;
+}
+button.opcao:hover{
+  transform:translateY(-4px);
+  box-shadow:0 6px 18px rgba(0,0,0,.4)
+}
+.footer{
+  display:flex;justify-content:center;align-items:center;
+  height:48px;color:var(--muted);font-size:.9rem
+}
