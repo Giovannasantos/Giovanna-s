@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aventura na Floresta Mística</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="topo">
+        <div class="container">
+            <h1>Aventura na Floresta Mística</h1>
+            <p class="sub">Um mini-jogo com HTML, CSS e JavaScript — pronto para GitHub Pages.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="cenario" class="card">
+            <p id="texto"></p>
+        </section>
+
+        <section id="opcoes" class="card actions"></section>
+
+        <footer class="card footer">
+            <small>Feito com ❤️ — utilize os botões para avançar na aventura.</small>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
